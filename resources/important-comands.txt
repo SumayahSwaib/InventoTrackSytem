@@ -1,0 +1,63 @@
+php artisan make:resource PostResource
+
+composer create-project laravel/laravel EMS --> creating  a laravel project
+
+
+ 
+php artisan make:controller ApiController --creating a controller
+
+
+php artisan make:migration create_visitors_table  ---creating tables for database in the migration folder
+php migrate 
+
+php artisan make:model Utils   --- creating a model
+php artisan make:model StockRecord -m   --- creating a model
+php artisan admin:make CompanyEditController --model=App\models\Company    ---in laravel ADMIN
+
+
+php artisan make:migration add_currency_table --table=companies ----to add columns to the table
+
+
+php artisan make:controller PostsController
+
+
+
+
+php artisan make:migration add_Department_to_doctors--table=doctors ----add  a column to a atable in laravel 
+
+php artisan make:migration add_gender_to_table --table=doctors
+
+
+Php artisan admin:action Employees\\Replicate --grid-row --name="copy" -------to do an action on a row 
+
+Php artisan admin:action Employees\\BatchReplicate --grid-batch --name="batch copy"
+ /*  $table->id();
+            $table->timestamps();
+            $table->foreignId(Company::class);
+            $table->foreignId(StockItem::class);
+            $table->foreignId(StockCategory::class);
+            $table->foreignId(StockSubCategory::class);
+            $table->foreignId(User::class, "created_by_id");
+            $table->string('sku')->nullable("No");
+            $table->string('name')->nullable("No");
+            $table->string('measurement_unit');
+            $table->string('decription')->nullable("No");
+            $table->string('type');
+            $table->float('quantity');
+            $table->float('selling_price');
+            $table->float('total_sales'); */
+
+
+          -->  dashboard
+          - This week sales
+          - Employee total_sales
+          -In stock
+
+          - finacia period sales
+          - finacia period loses
+
+          - Stock Cats best/worst
+          - Stock subcat - runing out , best performer , worst performer
+          - recent stock StockItem
+          - recent sales (list)
+          Stock cats by percentage (pie)
