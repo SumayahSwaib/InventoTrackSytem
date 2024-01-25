@@ -16,3 +16,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ server.php
 </IfModule>
+
+composer remove --ignore-platform-reqs=php
