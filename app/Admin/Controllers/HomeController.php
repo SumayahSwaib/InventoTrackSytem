@@ -20,7 +20,7 @@ class HomeController extends Controller
         $u = Admin::user();
         $company = Company::find($u->company_id);
         return $content
-            ->title($company->name . " Dashboard",)
+           // ->title($company->name . " Dashboard",)
             ->description('hello...' . $u->name)
             ->row(function (Row $row) {
                 $row->column(3, function (Column $column) {
@@ -41,12 +41,11 @@ class HomeController extends Controller
                     $u = Admin::user();
                     $company = Company::find($u->company_id);
 
-                    $box = new Box('Todays Sales', '<h3 style="text-align:right; margin:0; font-size:40px; font-weight:800">
-                    '.$company->currency ." ". number_format($total_sales)   . '</h3>');
+                  //  $box = new Box('Todays Sales', '<h3 style="text-align:right; margin:0; font-size:40px; font-weight:800"> '.$company->currency ." ". number_format($total_sales)   . '</h3>');
 
-                    $box->style('danger');
-                    $box->solid();
-                    $column->append($box);
+                    // $box->style('danger');
+                    // $box->solid();
+                    // $column->append($box);
                 });
             });
     }

@@ -17,12 +17,17 @@ use Illuminate\Support\Facades\Schema;
 class ApiController extends BaseController
 
 {
-    
-
-    public function Myfile_uploading($model, Request $r)
+    public function file_uploading(Request $r)
     {
-        die("time to uplaod file");
+        $path = Utils::file_uploading($r->file('photo'));
+        if ($path == "") {
+            Utils::error("file not uploaded");
+        }
+        Utils::success([
+            'file_name' => $path,
+        ], "file uploaded successfully");
     }
+
 
     public function My_list($model, Request $r)
     {
@@ -63,9 +68,29 @@ class ApiController extends BaseController
             }
             $object->$key = $value;
         }
+        $object->company_id = $u->company_id;
+        //temp_image_field=
+        if ($r->temp_file_field != null) {
+            if (strlen($r->temp_file_field) > 1) {
+                $file = $r->file("photo");
+                if ($file != null) {
+                    $path = "";
+                    try {
+                        $path = Utils::file_uploading($r->file('photo'));
+                    } catch (\Exception $e) {
+                        $path = "";
+                    }
+                    if (strlen($path) > 3) {
+                        $field_name= $r->temp_file_field;
+                        $object->$field_name = $path;
+                    }
+                }
+            }
+        }
+
         try {
             $object->save();
-        } catch (\Throwable $e) {
+        } catch (\Exception $e) {
             Utils::error($e->getMessage());
         }
         $new_object = $model::find($object->id);
@@ -115,9 +140,6 @@ class ApiController extends BaseController
             "login sucessfull"
         );
     }
-
-
-
     public function register(Request $r)
     {
         if ($r->first_name == null) {

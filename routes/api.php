@@ -23,7 +23,7 @@ Route::post('auth/register', [ApiController::class, 'register']);
 Route::post('auth/login', [ApiController::class, 'login']);
 Route::post('api/{model}', [ApiController::class, 'my_update']);
 Route::get('api/{model}', [ApiController::class, 'my_List']);
-Route::post('api/file-uploading}', [ApiController::class, 'Myfile_uploading']);
+Route::post('file-uploading', [ApiController::class, 'file_uploading']);
 
 
 
