@@ -20,8 +20,8 @@ class HomeController extends Controller
         $u = Admin::user();
         $company = Company::find($u->company_id);
         return $content
-           // ->title($company->name . " Dashboard",)
-           // ->description('hello...' . $u->name)
+            ->title($company->name . " Dashboard",)
+            ->description('hello...' . $u->name)
             ->row(function (Row $row) {
                 $row->column(3, function (Column $column) {
                     $count = User::where('company_id', Admin::user()->company_id)->count();
