@@ -66,6 +66,12 @@ class ApiController extends BaseController
             if (in_array($key, $exept)) {
                 continue;
             }
+            if ($value == null) {
+                continue;
+            }
+            if ($value == "") {
+                continue;
+            }
             $object->$key = $value;
         }
         $object->company_id = $u->company_id;
@@ -81,7 +87,7 @@ class ApiController extends BaseController
                         $path = "";
                     }
                     if (strlen($path) > 3) {
-                        $field_name= $r->temp_file_field;
+                        $field_name = $r->temp_file_field;
                         $object->$field_name = $path;
                     }
                 }

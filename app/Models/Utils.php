@@ -74,6 +74,8 @@ class Utils
         $sku = $year . "-" . $sub_category->id . "-" . "00" . $serial;
         return $sku;
     }
+
+    // function that fetches table names from the database 
     static public function get_table_name()
     {
         $tables = DB::select('SHOW TABLES');
