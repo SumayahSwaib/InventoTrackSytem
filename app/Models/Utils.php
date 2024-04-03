@@ -65,7 +65,7 @@ class Utils
         return FinacialPeriod::where('company_id', $company_id)
             ->where('status', 'active')->first();
     }
-
+    // function for generating sku
     static public function generateSKU($sub_category_id)
     {
         $year = date("y");
@@ -83,7 +83,7 @@ class Utils
         $key = "Tables_in_" . $db_name;
         $table_names = [];
         foreach ($tables as $key => $table) {
-            $db_name = "Tables_in_".env('DB_DATABASE');
+            $db_name = "Tables_in_" . env('DB_DATABASE');
             $table_names[$table->$db_name] = $table->$db_name;
         }
         return $table_names;

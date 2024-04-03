@@ -63,6 +63,7 @@ class User extends Administrator
             }
             $model->username = $model->email;
             return $model;
+        
         });
     }
 
