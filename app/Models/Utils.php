@@ -59,7 +59,7 @@ class Utils
         die();
     }
 
-
+// function for geting the active  finacial year
     static function getActiveFinacialPeriod($company_id)
     {
         return FinacialPeriod::where('company_id', $company_id)

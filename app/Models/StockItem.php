@@ -68,7 +68,7 @@ class StockItem extends Model
         $model->finacial_period_id = $financial_period->id;
         $model->company_id = $user->company_id;
 
-        if ($model->sku == null || strlen($model->sku) < 3) {
+        if ($model->sku == null || strlen($model->sku) < 2) {
             $model->sku = Utils::generateSKU($model->stock_sub_category_id);
         }
         if ($model->update_sku == "Yes" && $model->generate_sku == "Manual") {

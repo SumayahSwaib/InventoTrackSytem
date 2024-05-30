@@ -88,7 +88,7 @@ class StockRecordController extends AdminController
                     'Damage' => 'danger',
                     'Expired' => 'warning',
                     'Lost' => 'info',
-                    'Internel Use ' => 'primar',
+                    'Internel Use ' => 'primary',
                     'Others' => 'default',
                 ]
             ]);
