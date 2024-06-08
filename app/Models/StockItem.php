@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use function PHPUnit\Framework\throwException;
-
+//
 class StockItem extends Model
 {
     use HasFactory;
@@ -53,7 +53,7 @@ class StockItem extends Model
     {
         $sub_category = StockSubCategory::find($model->stock_sub_category_id);
         if ($sub_category == null) {
-            throw new \Exception("Invalid Stock Category");
+            throw new \Exception("Invalid Stock sub Category");
         }
         $model->stock_category_id = $sub_category->stock_category_id;
 
@@ -103,7 +103,7 @@ class StockItem extends Model
         if ($this->stockSubCategory != null) {
             $name_text = $name_text . "-" . $this->stockSubCategory->name;
         }
-        $name_text = $name_text . "(". number_format($this->current_quantity)."". $this->stockSubCategory->measurements_unit.")";
+        $name_text = $name_text . "(" . number_format($this->current_quantity) . "" . $this->stockSubCategory->measurements_unit . ")";
         return $name_text;
     }
 

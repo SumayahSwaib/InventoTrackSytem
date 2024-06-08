@@ -25,6 +25,7 @@ class FinacialPeriodController extends AdminController
      */
     protected function grid()
     {
+      //  
         $grid = new Grid(new FinacialPeriod());
         $u = Admin::user();
         $grid->model()->where('company_id', $u->company_id);
